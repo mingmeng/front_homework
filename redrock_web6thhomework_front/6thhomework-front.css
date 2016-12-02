@@ -1,0 +1,72 @@
+*{
+	margin:0;
+	padding: 0;
+	text-decoration: none;
+}
+body{
+	
+}
+#container{
+	overflow: hidden;	
+	border: none;
+	width: 800px;
+	height: 600px;
+	position: relative;
+}
+#container:hover button{display: block;}
+#list{
+	overflow: hidden;
+	position: absolute;
+	width: 5600px;
+	z-index: -1;
+}
+#list img{
+	float: left;
+}
+button#z,#x{
+	width: 30px;
+	height: 40px;
+	background-color: rgba(255,0,0,0.7);
+	border: none;
+	z-index: 1;
+	color: white;
+	cursor: pointer;
+	position: absolute;		
+	top: 280px;
+	display: none;
+}
+button#z:hover{
+	background-color: rgba(0,255,0,1);
+}
+button#x:hover{
+	background-color: rgba(0,255,0,1);
+}
+#z{
+	left: 30px;
+}
+#x{
+	right: 30px;
+}
+#bottom{
+	position: absolute;
+	z-index: 2;
+	width: 200px;
+	height: 30px;
+	line-height: 30px;
+	bottom: 2px;
+	left: 33%;
+}
+#bottom button{
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin-left: 10px;
+	z-index: 1;	
+	cursor: pointer;
+	float: left;
+	border: none;
+}
+.on
+{
+	background-color: red;
+}
