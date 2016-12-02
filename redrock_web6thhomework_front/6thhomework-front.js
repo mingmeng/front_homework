@@ -53,9 +53,11 @@ window.onload=function()
 		button[index-1].className="on";
 	}
 
+//左右键点击
+	x.addEventListener("click",xonclick);
+	z.addEventListener("click",zonclick);
 
-
-	z.onclick=function(){
+	function zonclick(){
 		if(index==1)
 			{index=5;}
 		else
@@ -63,9 +65,7 @@ window.onload=function()
 		showbutton();
 		move(800);
 	}//左键点击功能
-
-
-	x.onclick=function(){
+	function xonclick(){
 		if(index==5)
 			index=1;
 		else
@@ -74,23 +74,24 @@ window.onload=function()
 		move(-800);
 	}//右键点击功能
 
+
 //下面那排小圆点功能的实现
 	for (var i = 0; i <button.length; i++) {
-		button[i].onclick=function()
+		button[i].addEventListener("click",function(e)
 		{
-			var id=parseInt(this.getAttribute('id'));
+			var id=e.target.id;
 			var xs=-800*(id-index);
 			move(xs);
 			index=id;
 			showbutton();
-		}
+		});
 	}
 
 //自动播放部分
 	function clock()
 	{
 		clock=setInterval(function(){
-			x.onclick();
+			xonclick();
 		},gap1);
 	}
 
@@ -100,6 +101,7 @@ window.onload=function()
 		clearInterval(clock);
 	}
 
-	container.onmouseover = clear;
-	container.onmouseout = clock;
+//光标覆上和移开
+	container.addEventListener("mouseover",clear);
+	container.addEventListener("mouseout",clock);
 }
